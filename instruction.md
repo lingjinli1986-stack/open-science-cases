@@ -8,19 +8,31 @@ Use the case page URL and the .science package URL in the user's current request
 2. Find the entry for this package in the [official Market manifest](https://statics.aipoch.com/open-science/usecases/manifest.json). Match the archive filename and case identity, and use the **case** object's byte count and SHA-256. If the page, package or manifest disagree, stop and report the mismatch before import.
 3. Read one distinctive result or artifact name from the supplied page. Keep it with the target title and expected digest for final verification. Reuse an existing session only when its package provenance matches the requested archive. If this cannot be established, import the verified archive into a uniquely named project. Leave other projects intact.
 
-## Prepare the desktop and model
+## Install or update Open-Science
 
-1. Check the installed desktop version and OS/architecture. Compare it with the [official stable release](https://github.com/aipoch/open-science/releases/latest). Install the appropriate desktop package if missing. Update an older installation through its supported channel and resume after any system approval. Launch the desktop app, then confirm the CLI targets the same profile with its status command.
-2. Identify the assistant receiving this request. Open Open-Science **Settings** and reuse a working configuration for the matching framework. Use the method below when setup is needed. Check the selected framework with `open-science settings agent-routing show --json`, and validate the connection in Settings. Keep credentials inside the provider's own sign-in flow.
+Detect the host operating system and CPU architecture, then check whether Open-Science Desktop is installed and read its installed version. Check the [AIPOCH official download page](https://aipoch.com/open-science/download) for the latest stable version and a compatible desktop installer.
 
-   | Assistant running this request | Model setup in Open-Science |
-   | --- | --- |
-   | WorkBuddy | Select **CodeBuddy**, choose the regional site that owns the user's plan, and select **Use existing CodeBuddy CLI sign-in**. Complete the site's authorization if prompted. |
-   | Codex | Select **Codex** and **Codex subscription**. Import the existing ChatGPT sign-in or complete the displayed sign-in, then validate and activate the subscription. |
-   | Claude Code | Select **Claude Code** and **Claude subscription**. Use the existing Claude Code sign-in if offered, or complete the Claude browser authorization in Settings. Claude web chat needs a local client with access to this desktop. |
-   | OpenCode | Select **OpenCode**, let OS detect the local OpenCode executable, and select an already-authorized provider and model offered by OS for this framework. If none is available, ask which provider the user wants to connect and complete its supported setup in Settings. OpenCode does not imply a particular subscription. |
+| Local desktop state | Action |
+| --- | --- |
+| Missing | Download the matching stable installer from the official page, install Open-Science, and launch it. |
+| Older than the published stable release | Update in place using the app’s supported stable update channel. If the platform requires a manual update, use the matching installer from the same official download page. Resume after any required system confirmation or restart. |
+| Already on the current stable release | Open the installed app and continue to model setup. |
+| Newer than the published stable release | Keep the installed version. |
 
-   If account authorization requires the owner, continue with independent archive preparation and identify the required sign-in. Opening an archived session does not require running a new model turn.
+After installation or update, read the running desktop version again and confirm it matches the intended release. Confirm the CLI targets the same profile with its status command. If the host lacks a compatible installer or the update cannot be completed, report the host, observed version and remaining step.
+
+## Connect the model
+
+Identify the assistant receiving this request. Open Open-Science **Settings** and reuse a working configuration for the matching framework. Use the method below when setup is needed. Check the selected framework with `open-science settings agent-routing show --json`, and validate the connection in Settings. Keep credentials inside the provider's own sign-in flow.
+
+| Assistant running this request | Model setup in Open-Science |
+| --- | --- |
+| WorkBuddy | Select **CodeBuddy**, choose the regional site that owns the user's plan, and select **Use existing CodeBuddy CLI sign-in**. Complete the site's authorization if prompted. |
+| Codex | Select **Codex** and **Codex subscription**. Import the existing ChatGPT sign-in or complete the displayed sign-in, then validate and activate the subscription. |
+| Claude Code | Select **Claude Code** and **Claude subscription**. Use the existing Claude Code sign-in if offered, or complete the Claude browser authorization in Settings. Claude web chat needs a local client with access to this desktop. |
+| OpenCode | Select **OpenCode**, let OS detect the local OpenCode executable, and select an already-authorized provider and model offered by OS for this framework. If none is available, ask which provider the user wants to connect and complete its supported setup in Settings. OpenCode does not imply a particular subscription. |
+
+If account authorization requires the owner, continue with independent archive preparation and identify the required sign-in. Opening an archived session does not require running a new model turn.
 
 ## Import the requested package
 
