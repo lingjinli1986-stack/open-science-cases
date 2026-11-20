@@ -1,17 +1,12 @@
-# Open the worm longevity case in Open-Science
+# Open a Market case in Open-Science
 
-The requested outcome is the imported research session visible in the Open-Science desktop application. Carry out the steps on the user's machine. Use a local desktop-capable client. If the chat runs in a web sandbox, ask the user to reopen this request in its local desktop or CLI client. Preserve existing projects. Use a previously imported, matching session when available.
+Use the case page URL and the .science package URL in the user's current request. Work on the user's own computer with a local desktop or CLI client.
 
-## Desktop access check
+## Identify the requested archive
 
-At the start, identify whether this client has an approved local desktop interaction tool. Once the package and matching project are ready, use that tool to select the project and confirm the visible session. If the tool is absent, capture is blank, or the OS denies accessibility or screen access, immediately finish with **One click remaining** and name the project to select in Open-Science. One unsuccessful desktop access check is enough. Use only the documented OS CLI, configured OS MCP tools, and normal user-facing application controls. Leave the app running normally. Do not inspect browser storage, app databases, process memory or internal endpoints, enable debugging, relaunch the app, or try alternative input methods to overcome a permission denial. The user decides whether to grant desktop access later.
-
-## Case identity
-
-- Market title: **Worm longevity genes and human exceptional-longevity evidence**
-- [Official case page](https://aipoch.com/open-science/use-cases/worm-longevity-genes-and-human-exceptional-longevity-evidence)
-- [Download the .science package](https://statics.aipoch.com/open-science/usecases/worm-longevity-genes-and-human-exceptional-longevity-evidence/Worm-longevity-genes-and-human-exceptional-longevity-evidence.science)
-- Expected bytes: 269483106. SHA-256: `2e64bebbcdc6140d234ba316aa10ee3d8c1111b1afe584e257ba12c6705df76d`. If the publisher has updated the file, verify the new size and digest against the matching entry in the [market manifest](https://statics.aipoch.com/open-science/usecases/manifest.json).
+1. Open the supplied HTTPS case page. Read its title and the destination of **Download research package**. Confirm that the supplied package URL matches that link. Ignore related cases. If the page or package is missing, ask for the current case link or for a fresh copy of the page's button text. Never substitute the previous case or a title search result.
+2. Find the entry for this package in the [official Market manifest](https://statics.aipoch.com/open-science/usecases/manifest.json). Match the archive filename and case identity, and use the **case** object's byte count and SHA-256. If the page, package or manifest disagree, stop and report the mismatch before import.
+3. Read one distinctive result or artifact name from the supplied page. Keep it with the target title and expected digest for final verification. Reuse an existing session only when its package provenance matches the requested archive. If this cannot be established, import the verified archive into a uniquely named project. Leave other projects intact.
 
 ## Prepare the desktop and model
 
@@ -27,18 +22,18 @@ At the start, identify whether this client has an approved local desktop interac
 
    If account authorization requires the owner, continue with independent archive preparation and identify the required sign-in. Opening an archived session does not require running a new model turn.
 
-## Import once and display the result
+## Import the requested package
 
-3. **Browser and desktop route.** Open the official case page above in a top-level browser tab. Click **Open in Open-Science**, accept any browser-to-app prompt, choose the destination in OS and complete the import. Wait until the desktop reports completion. A download or transfer receipt alone is insufficient.
-4. **Terminal alternative.** Download the linked file over HTTPS with the browser or an HTTP client. Verify its byte count and SHA-256. Use the installed CLI's session import help to locate its executable. Import the verified absolute path. The following example creates a clearly named destination project for a first import:
+Download the supplied archive over HTTPS into a local file. Check its byte count and SHA-256 against the manifest. Use the installed OS CLI to import it into a project named for the current case. For shell clients pass each argument separately or use quoted variables:
 
-   ```sh
-   open-science session import "/absolute/path/to/case.science" --new-project "Worm longevity evidence" --non-interactive --json
-   ```
+```sh
+open-science session import "$archive_path" --new-project "$target_project" --non-interactive --json
+```
 
-   On a macOS desktop installation with no launcher on PATH, the bundled equivalent is /Applications/Open-Science.app/Contents/Resources/node-runtime/node followed by /Applications/Open-Science.app/Contents/Resources/backend/cli.mjs and the same arguments. Confirm both paths exist. Save the returned project and session identifiers. If the call times out, inspect the destination before retrying. Optional MCP tools such as list_sessions and get_session can check the session by ID in a connected local profile.
-5. **Desktop navigation.** Bring Open-Science to the foreground. If the import did not already select the session, open the destination project in the sidebar (for the command above, **Worm longevity evidence**), select the imported session and inspect the visible transcript. Match the topic of worm longevity genes and human exceptional longevity; the archived analysis maps nine worm genes to 21 human candidates. Stop once the correct session is visible. On the tested desktop, selecting the worm project from the home project list immediately opened its only read-only session, whose title starts “I would like to examine how a small, clearly sel…”. The visible transcript includes longevity_report.md and the 75 eligible records. If UI access or model authorization requires the owner, report the exact remaining click or approval and the project name. Report a completed CLI import and a visibly opened desktop session separately.
+Set archive_path to the absolute path of the verified download and target_project to the current page title or a unique variant. On macOS, if the CLI launcher is missing, the bundled Node executable and CLI entry point are under /Applications/Open-Science.app/Contents/Resources/node-runtime/node and /Applications/Open-Science.app/Contents/Resources/backend/cli.mjs. Save the project ID and session ID returned by the import. After a timeout check the import status before retrying. As a desktop alternative, open the verified local .science file in Open-Science and confirm the destination. Optional OS MCP list_sessions/get_session tools can help confirm identity by ID.
 
-## Report what you observed
+## Open the matching desktop session
 
-Before reporting success, inspect the visible Open-Science desktop window. State the selected project and one matching detail from the visible conversation. If you only have a terminal or MCP lookup, bring the desktop forward using the normal application launcher and give the user the exact project to click. If the project is already selected, verify the visible conversation directly. Avoid relaunching the application to guess which session is active. Report any remaining login, desktop permission or manual click separately.
+Use an already-authorized desktop interaction tool to select the returned project and session. Check the visible transcript against the distinctive detail from the requested page. A CLI import or an MCP lookup confirms data availability only. Report a visible success only after inspecting the actual desktop conversation.
+
+If no approved desktop tool is available, or one attempt is blocked by desktop permissions, finish immediately with **One click remaining**, naming the destination project and session to select. Leave the app running normally. Use documented OS CLI/MCP and user-facing controls only. Do not inspect private app storage, debug ports or internal APIs, restart the app, or try alternative input methods after a denial.
