@@ -2,6 +2,10 @@
 
 The requested outcome is the imported research session visible in the Open-Science desktop application. Carry out the steps on the user's machine. Use a local desktop-capable client. If the chat runs in a web sandbox, ask the user to reopen this request in its local desktop or CLI client. Preserve existing projects. Use a previously imported, matching session when available.
 
+## Desktop access check
+
+At the start, identify whether this client has an approved local desktop interaction tool. Once the package and matching project are ready, use that tool to select the project and confirm the visible session. If the tool is absent, capture is blank, or the OS denies accessibility or screen access, immediately finish with **One click remaining** and name the project to select in Open-Science. One unsuccessful desktop access check is enough. Use only the documented OS CLI, configured OS MCP tools, and normal user-facing application controls. Leave the app running normally. Do not inspect browser storage, app databases, process memory or internal endpoints, enable debugging, relaunch the app, or try alternative input methods to overcome a permission denial. The user decides whether to grant desktop access later.
+
 ## Case identity
 
 - Market title: **Worm longevity genes and human exceptional-longevity evidence**
