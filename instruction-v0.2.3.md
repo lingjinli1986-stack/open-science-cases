@@ -1,7 +1,7 @@
 # Open this research case in Open-Science
-Version 0.2.3 — archive viewing with optional model setup
+Version 0.2.3 — revised 2026-11-23; archive viewing with a user-confirmed desktop handoff
 
-Use the case-page URL and .science package URL in the user's request to identify the target. This guide works across cases and receiving assistants, including WorkBuddy, Codex, Claude Code and OpenCode. Reply in the user's language.
+Use the case-page URL in the user's request to identify the target. Read that page's visible AI assistant guide link and Download research package link (or their equivalents). Resolve relative links against the case page. The request may include only the case-page URL; a separate package URL is optional. If supplied, it must agree with the page. Do not infer the package from the case name alone. If the page or required links cannot be read, report the missing link and ask for it; do not guess a different case. This guide works across cases and receiving assistants, including WorkBuddy, Codex, Claude Code and OpenCode. Reply in the user's language.
 
 The goal is to import the supplied archive and bring the correct Open-Science desktop window forward. A visible, actionable **Open imported Session** for this import is an acceptable handoff. Opening the matching archived conversation is also complete.
 
@@ -49,7 +49,7 @@ Use OS settings and readiness checks only. Do not send an OK request or another 
 
 ## 4. Verify and import the supplied archive once
 
-Read the case title, package link and one distinctive artifact or finding from the supplied case page. Match the supplied package to the page and the [official case manifest](https://statics.aipoch.com/open-science/usecases/manifest.json). Verify its exact byte count and SHA-256. Stop on a mismatch. A previously downloaded copy may be reused after the same verification.
+Read the case title, package link and one distinctive artifact or finding from the supplied case page. Use the exact .science URL linked by that page. Match that package to the page and the [official case manifest](https://statics.aipoch.com/open-science/usecases/manifest.json). Verify its exact byte count and SHA-256. Stop on a mismatch. A previously downloaded copy may be reused after the same verification.
 
 Use the running desktop's own service, profile and CLI. On macOS the bundled CLI is typically Contents/Resources/backend/cli.mjs, run with Contents/Resources/node-runtime/node. On Windows use the installed launcher documented by that release. Check the installed help before using commands. Quote paths and pass arguments separately.
 
@@ -63,12 +63,20 @@ Choose a unique project title containing the case title and a timestamp. Use the
 
 Use the bundled executable and supported profile option where appropriate. Save the returned project ID and session ID. Use these IDs to distinguish this import from same-name older projects. On interruption or timeout, check this operation's result before retrying; an import can succeed before a response is lost. Stop on an uncertain outcome rather than creating duplicates. A supported desktop import is an alternative when no CLI import has started. MCP is optional for verification; it is not required for this CLI path.
 
-## 5. Bring forward the target window and report the result
+## 5. Bring forward OS and guide the final click
 
 Let the desktop respond to import completion. If it remains in the background, use a permitted activation mechanism for the installed app, such as its documented protocol or the operating system's ordinary application activation. The basic open-science://open URI activates the registered app; it does not encode a session ID. If multiple OS builds exist, target the intended installation explicitly.
 
-Check for a visible window, then the completion dialog belonging to this import. Leave **Open imported Session** visible and say “案例已导入，请点「Open imported Session」查看研究会话。” If the correct archived conversation is already visible, report completion. If the desktop instead shows Projects, give the exact new project and session. If onboarding remains visible, finish the supported skip path before promising a final click.
+After import, give a short completion statement and ask whether the user can see the OS window. Guide the remaining click in the same message, in the user's language. For example:
 
-Count a user switching to OS separately from automatic foreground display. If inspection is unavailable, state that the button/window could not be verified and give the smallest manual check. Screenshots can omit windows when capture permission is unavailable. A menu bar, running process, import receipt, MCP lookup or web replay alone does not prove the button is visible. Observe the permissions of the current receiving assistant; a past WorkBuddy System Events denial on one Mac does not determine every assistant's capabilities.
+> “线虫案例已导入，我已尝试唤起 Open-Science。你现在看到 OS 窗口了吗？如果看到导入完成提示，请点「Open imported Session」查看案例正文；如果正文已经显示，就不需要再点。如果没有看到 OS，请告诉我当前画面。”
 
-End with the installed/running version, configuration status, import IDs, observed window state and the exact action still needed. Configuration may remain pending while the archived case is successfully open.
+Adapt the case name and describe only actions actually completed. If activation was confirmed, say that OS was brought forward; if it was attempted but not confirmed, say it was attempted. Use the exact visible button label when available. The import-completion button opens the already imported session: do not tell the user to import the package again. If the button cannot be inspected, condition the instruction on the completion prompt being visible, rather than claiming the button is there.
+
+If the desktop instead shows Projects, identify the exact new project and session from this import's IDs and timestamp. Give that route only as the fallback if the completion prompt is absent. If onboarding remains visible, finish the supported skip path before promising a final click.
+
+Keep three outcomes separate: (1) import succeeded; (2) OS reached the foreground; (3) the user can see the correct session body. A visible **Open imported Session** is an acceptable one-click handoff, but it is not proof that the session body opened automatically. Ask for user confirmation when direct observation is unavailable. Record whether the user clicked the completion button or manually switched apps. If the user later corrects an earlier observation, update the result accordingly.
+
+Do not require screenshots, screen-recording permission, or Accessibility permission just to finish this archive-viewing task. Do not keep taking screenshots or investigating window lists after import and an ordinary activation attempt when the remaining question can be answered by the user. A process, menu bar, import receipt, MCP lookup, app-specific screenshot, or web replay does not by itself prove what the user sees in the foreground. A screenshot captured after the user's click does not prove automatic opening. Observe the permissions of the receiving assistant; a past WorkBuddy System Events denial on one Mac does not determine every assistant's capabilities.
+
+Record the installed/running version, configuration status, import IDs, and the three distinct outcomes. Keep the user-facing closing message short and centered on the completed import and the remaining click. Configuration may remain pending while the archived case is successfully open. Do not send model test messages as part of this handoff.
