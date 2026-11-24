@@ -1,0 +1,14 @@
+{
+  "title": "222例胃癌临床数据：从基线比较到研究图表",
+  "source": "case-page publisher; not an AIPOCH catalog entry",
+  "case": {
+    "file_name": "gastric-cancer-222.science",
+    "url": "gastric-cancer-222.science",
+    "bytes": 17873064,
+    "sha256": "d6cd86e4e09c355fb93712d3a164cd0ebd2fd7563d2574a9bc35bdaaa9d07950"
+  },
+  "packaging": {
+    "method": "gzip level 9; decompressed archive bytes unchanged",
+    "decompressed_sha256": "115845780e94cebd15cfee6e29e424e713ba81d68cbc2f887a77a69d164c1a67"
+  }
+}

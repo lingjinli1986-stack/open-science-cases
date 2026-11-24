@@ -4,6 +4,13 @@
 
 **[打开黄色线虫案例页](https://lingjinli1986-stack.github.io/open-science-cases/helixlife-worm-longevity.html)** · **[当前英文指南 v0.2.5](https://lingjinli1986-stack.github.io/open-science-cases/instruction-v0.2.5.md)**
 
+## 案例入口
+
+| 案例 | 内容 |
+| --- | --- |
+| [胃癌临床研究 · 222 例](https://lingjinli1986-stack.github.io/open-science-cases/helixlife-gastric-cancer-222.html) | 基线比较、58 对 PSM、四个生存终点、Cox 分析及完整研究包。 |
+| [线虫长寿基因与人类长寿证据](https://lingjinli1986-stack.github.io/open-science-cases/helixlife-worm-longevity.html) | 9 个线虫基因、21 个人类候选基因与长寿关联记录。 |
+
 ## 使用方法
 
 打开案例页，点击 **复制给 AI 助手**，将原文粘贴到 WorkBuddy 等本机助手的新聊天。也可以直接转发下面这句提示词：
@@ -47,6 +54,10 @@ v0.2.3 原样保留。v0.2.4 曾用于历史交接修订，本次使用 v0.2.5�
 | `index.html` | 原英文线虫页面，保留原地址。 |
 | `ai-or-human-what-story-structure-reveals.html` | 原故事案例页面，保留原地址。 |
 
+胃癌案例使用 [v0.2.5 发布者托管包适配指南](gastric-cancer-222-instruction.md)，按同页的 manifest 校验发布者提供的研究包，不要求该包出现在 AIPOCH 官方目录。首设必须完成，模型配置可 Skip。原始 v0.2.5 及线虫入口保持原样。
+
+胃癌案例已核对静态页面、复制内容和文件一致性；尚未进行新的 WorkBuddy / OS 导入端到端实测。包的 gzip 压缩率经过调整，解压后的归档字节完全一致。
+
 ## 如何新增案例
 
 1. 以当前黄色页面为模板，更新案例标题、正文、图片及唯一的 `.science` 链接。
@@ -57,4 +68,4 @@ v0.2.3 原样保留。v0.2.4 曾用于历史交接修订，本次使用 v0.2.5�
 
 ## 维护边界
 
-公开仓库保存可分享页面、指南和使用说明；私有维护仓库保存过程记录及内部资料。不会将账号、凭据或个人研究记录写入公开文件。
+公开仓库保存案例页、指南、汇总图表及经提供者确认可公开的研究包；私有维护仓库继续保持私有。新增研究包前须核实可公开范围，账号与凭据不得写入公开文件。
