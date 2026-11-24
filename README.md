@@ -2,7 +2,7 @@
 
 把一个案例页交给本机 AI 助手，按通用指南准备 Open-Science、校验并导入研究包，再打开对应的研究会话。阅读已有归档不需要重新运行研究或额外发送模型消息。
 
-**[打开黄色线虫案例页](https://lingjinli1986-stack.github.io/open-science-cases/helixlife-worm-longevity.html)** · **[当前英文指南 v0.2.3](https://lingjinli1986-stack.github.io/open-science-cases/instruction-v0.2.3.md)**
+**[打开黄色线虫案例页](https://lingjinli1986-stack.github.io/open-science-cases/helixlife-worm-longevity.html)** · **[当前英文指南 v0.2.5](https://lingjinli1986-stack.github.io/open-science-cases/instruction-v0.2.5.md)**
 
 ## 使用方法
 
@@ -17,9 +17,10 @@
 | 版本 | 用途 |
 | --- | --- |
 | [v0.1.0](instruction-v0.1.0.md) | 第一版，原样保留，供对照和回退。`instruction.md` 保留相同内容，兼容旧英文页面。 |
-| [v0.2.3 · 2026-11-23 修订](instruction-v0.2.3.md) | 黄色页面使用。按官网检查安装与版本；允许在产品支持时暂缓 CodeBuddy／模型配置；按本次导入 ID 定位；确认 OS 窗口并引导最后一次点击。 |
+| [v0.2.3 · 2026-11-23 修订](instruction-v0.2.3.md) | 保留用于回退。按官网检查安装与版本；允许在产品支持时暂缓 CodeBuddy／模型配置；按本次导入 ID 定位；确认 OS 窗口并引导最后一次点击。 |
+| [v0.2.5 · 2026-11-24](instruction-v0.2.5.md) | 黄色页面当前使用。模型可以 Skip，但必须完成 Notebook → Finish 并确认进入工作区后才导入；补齐 Windows 启动受限交接和已有导入的恢复规则。 |
 
-本次按维护要求将当天的交接修订合并到 v0.2.3。原 v0.2.3、v0.2.4 和其他中间版本保留在 Git 提交历史，当前目录不再维护中间测试入口。版本名与修订日期一起标识当前文稿。
+v0.2.3 原样保留。v0.2.4 曾用于历史交接修订，本次使用 v0.2.5，避免复用版本名。更早的中间版本保留在 Git 历史。
 
 [整理前的固定快照](https://github.com/lingjinli1986-stack/open-science-cases/tree/e295f00c67846f56fd63f21c2514d7ab70a82ac7)保留原文件及原始版本内容，供对照和回退。
 
@@ -29,8 +30,9 @@
 | --- | --- |
 | Mac + WorkBuddy + 已安装 OS 1.3.3 | 研究包校验和导入成功，OS 自动到前台，用户点击一次 Open imported Session 后显示正确正文。 |
 | 已有 CodeBuddy 中国站订阅 | Agent 与主模型就绪检查通过；主模型由测试者在官方设置界面接手选择，并非 WorkBuddy 全自动完成。 |
-| 一个链接的精简提示词 | 检查页面、指南与研究包的链接关系；尚未重跑完整 WorkBuddy 流程。 |
-| 首次安装、配置失败后 Skip、Windows、其他 Agent | 当前修订仍待对应实机验证。 |
+| Windows + WorkBuddy + OS 1.3.4，使用 v0.2.3 | 安装、验包、导入成功；未操作首次向导，停在初始设置，未通过完整打开案例验收。 |
+| v0.2.5 首次设置修订 | 已按上述记录和 1.3.4 源码核对；尚未完成新的 Windows/Mac 端到端复测。 |
+| Codex、Claude Code、OpenCode | 本轮未实测，不能沿用 WorkBuddy 的结果。 |
 
 区分三个结果：**导入成功、OS 到前台、正文显示**。事后截图不能证明正文自动打开。日常流程不发送模型测试消息。
 
@@ -39,7 +41,8 @@
 | 文件 | 说明 |
 | --- | --- |
 | `helixlife-worm-longevity.html` | 当前黄色中文案例页；研究短片和 Replay 视频仍为占位。 |
-| `instruction-v0.2.3.md` | 当前通用英文指南。 |
+| `instruction-v0.2.5.md` | 当前通用英文指南。 |
+| `instruction-v0.2.3.md` | 上一版，原样保留以便回退。 |
 | `instruction-v0.1.0.md` / `instruction.md` | 第一版及兼容入口。 |
 | `index.html` | 原英文线虫页面，保留原地址。 |
 | `ai-or-human-what-story-structure-reveals.html` | 原故事案例页面，保留原地址。 |
